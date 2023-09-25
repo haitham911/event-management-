@@ -1,6 +1,6 @@
 package contracts
 
-import "github.com/event-management/store"
+import "github.com/event-management/src/lib/store"
 
 // LocationCreatedEvent is emitted whenever a location is created
 type LocationCreatedEvent struct {

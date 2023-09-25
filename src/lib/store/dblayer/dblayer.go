@@ -1,8 +1,8 @@
 package dblayer
 
 import (
-	"github.com/event-management/store"
-	"github.com/event-management/store/mongolayer"
+	"github.com/event-management/src/lib/store"
+	"github.com/event-management/src/lib/store/mongolayer"
 )
 
 type DBTYPE string

@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/event-management/store/dblayer"
+	"github.com/event-management/src/lib/store/dblayer"
 )
 
 var (

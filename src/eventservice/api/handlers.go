@@ -10,7 +10,7 @@ import (
 
 	"github.com/event-management/src/contracts"
 	"github.com/event-management/src/lib/msgqueue"
-	"github.com/event-management/store"
+	"github.com/event-management/src/lib/store"
 	"github.com/gorilla/mux"
 )
 

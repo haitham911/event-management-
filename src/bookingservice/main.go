@@ -8,7 +8,7 @@ import (
 	"github.com/event-management/src/bookingservice/listener"
 	"github.com/event-management/src/lib/msgqueue"
 	msgqueue_amqp "github.com/event-management/src/lib/msgqueue/amqp"
-	"github.com/event-management/store/dblayer"
+	"github.com/event-management/src/lib/store/dblayer"
 	"github.com/streadway/amqp"
 )
 

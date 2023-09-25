@@ -1,7 +1,7 @@
 package mongolayer
 
 import (
-	"github.com/event-management/store"
+	"github.com/event-management/src/lib/store"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
