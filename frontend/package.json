@@ -1,0 +1,26 @@
+{
+  "name": "myevents-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.14.46",
+    "@types/react-dom": "^16.9.19",
+    "@types/react-router-dom": "^5.3.3",
+    "bootstrap": "^3.4.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^6.16.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^4.0.1",
+    "typescript": "^5.2.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
