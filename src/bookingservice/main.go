@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 
-	"github.com/event-management/config"
 	"github.com/event-management/src/bookingservice/api"
 	"github.com/event-management/src/bookingservice/listener"
+	"github.com/event-management/src/lib/config"
 	"github.com/event-management/src/lib/msgqueue"
 	msgqueue_amqp "github.com/event-management/src/lib/msgqueue/amqp"
 	"github.com/event-management/src/lib/store/dblayer"

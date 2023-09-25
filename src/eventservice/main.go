@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/event-management/config"
 	"github.com/event-management/src/eventservice/api"
+	"github.com/event-management/src/lib/config"
 	"github.com/event-management/src/lib/msgqueue"
 	msgqueue_amqp "github.com/event-management/src/lib/msgqueue/amqp"
 	"github.com/event-management/src/lib/store/dblayer"
