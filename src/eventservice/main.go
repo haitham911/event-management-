@@ -38,11 +38,11 @@ func main() {
 	}
 
 	fmt.Println("Connecting to database")
-	dbhandler, _ := dblayer.NewSoreHandler(config.Databasetype, config.DBConnection)
+	dbhandler, _ := dblayer.NewSoreHandler(config.Databasetype, config.EventDBConnection)
 
 	fmt.Println("Serving API")
 	//RESTful API start
-	err := api.ServeAPI(config.RestfulEndpoint, dbhandler, eventEmitter)
+	err := api.ServeAPI(config.EventRestfulEndpoint, dbhandler, eventEmitter)
 	if err != nil {
 		panic(err)
 	}

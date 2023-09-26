@@ -43,10 +43,10 @@ func main() {
 		panic("Bad message broker type: " + config.MessageBrokerType)
 	}
 
-	dbhandler, _ := dblayer.NewSoreHandler(config.Databasetype, config.DBConnection)
+	dbhandler, _ := dblayer.NewSoreHandler(config.Databasetype, config.BookingDBConnection)
 
 	processor := listener.EventProcessor{EventListener: eventListener, Database: dbhandler}
 	go processor.ProcessEvents()
 
-	api.ServeAPI(config.RestfulEndpoint, dbhandler, eventEmitter)
+	api.ServeAPI(config.BookingRestfulEndpoint, dbhandler, eventEmitter)
 }

@@ -1,6 +1,9 @@
 {
-    "databasetype" : "mongodb",
-    "dbconnection": "mongodb://127.0.0.1",
+    "databasetype": "mongodb",
+    "eventdbconnection": "mongodb://127.0.0.1/events",
+    "bookingdbconnection": "mongodb://127.0.0.1/bookings",
+    "event_api_endpoint": "localhost:8181",
+    "booking_api_endpoint": "localhost:8282",
     "restfulapi_endpoint": "localhost:8181",
     "restfulapi-tlsendpoint": "localhost:9191"
 }

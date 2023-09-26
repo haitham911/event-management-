@@ -11,8 +11,10 @@ import (
 
 var (
 	DBTypeDefault              = dblayer.DBTYPE("mongodb")
-	DBConnectionDefault        = "mongodb://127.0.0.1"
-	RestfulEPDefault           = "localhost:8181"
+	EventDBConnection          = "mongodb://127.0.0.1/events"
+	BookingDBConnection        = "mongodb://127.0.0.1/bookings"
+	EventRestfulEndpoint       = "localhost:8181"
+	BookingRestfulEndpoint     = "localhost:8282"
 	RestfulTLSEPDefault        = "localhost:9191"
 	MessageBrokerTypeDefault   = "amqp"
 	AMQPMessageBrokerDefault   = "amqp://guest:guest@localhost:5672"
@@ -21,25 +23,30 @@ var (
 
 type ServiceConfig struct {
 	Databasetype        dblayer.DBTYPE `json:"databasetype"`
-	DBConnection        string         `json:"dbconnection"`
-	RestfulEndpoint     string         `json:"restfulapi_endpoint"`
-	RestfulTLSEndPint   string         `json:"restfulapi-tlsendpoint"`
-	MessageBrokerType   string         `json:"message_broker_type"`
-	AMQPMessageBroker   string         `json:"amqp_message_broker"`
-	KafkaMessageBrokers []string       `json:"kafka_message_brokers"`
+	EventDBConnection   string         `json:"eventdbconnection"`
+	BookingDBConnection string         `json:"bookingdbconnection"`
+
+	EventRestfulEndpoint   string `json:"event_api_endpoint"`
+	BookingRestfulEndpoint string `json:"booking_api_endpoint"`
+
+	RestfulTLSEndPint   string   `json:"restfulapi-tlsendpoint"`
+	MessageBrokerType   string   `json:"message_broker_type"`
+	AMQPMessageBroker   string   `json:"amqp_message_broker"`
+	KafkaMessageBrokers []string `json:"kafka_message_brokers"`
 }
 
 func ExtractConfiguration(filename string) (ServiceConfig, error) {
 	conf := ServiceConfig{
 		DBTypeDefault,
-		DBConnectionDefault,
-		RestfulEPDefault,
+		EventDBConnection,
+		BookingDBConnection,
+		EventRestfulEndpoint,
+		BookingRestfulEndpoint,
 		RestfulTLSEPDefault,
 		MessageBrokerTypeDefault,
 		AMQPMessageBrokerDefault,
 		KafkaMessageBrokersDefault,
 	}
-
 	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println("Configuration file not found. Continuing with default values.")
@@ -47,15 +54,20 @@ func ExtractConfiguration(filename string) (ServiceConfig, error) {
 	}
 	json.NewDecoder(file).Decode(&conf)
 
-	if v := os.Getenv("LISTEN_URL"); v != "" {
-		conf.RestfulEndpoint = v
+	if v := os.Getenv("LISTEN_URL_EVENT"); v != "" {
+		conf.EventRestfulEndpoint = v
 	}
-
-	if v := os.Getenv("MONGO_URL"); v != "" {
+	if v := os.Getenv("LISTEN_URL_BOOKING"); v != "" {
+		conf.BookingRestfulEndpoint = v
+	}
+	if v := os.Getenv("MONGO_URL_EVENT"); v != "" {
 		conf.Databasetype = "mongodb"
-		conf.DBConnection = v
+		conf.EventDBConnection = v
 	}
-
+	if v := os.Getenv("MONGO_URL_BOOKING"); v != "" {
+		conf.Databasetype = "mongodb"
+		conf.BookingDBConnection = v
+	}
 	if v := os.Getenv("AMQP_BROKER_URL"); v != "" {
 		conf.MessageBrokerType = "amqp"
 		conf.AMQPMessageBroker = v
