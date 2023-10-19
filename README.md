@@ -10,6 +10,7 @@ All our services will be integrated using a publish/subscribe architecture based
 The persistence layer will support multiple database technologies as well, in order to expose you to various practical database engines that empower your projects. We will support MongoDB, and DynamoDB</span>.
 All of our services will support metrics APIs, which will allow us to monitor the statistics of our services via Prometheus.
 
+
 The MyEvents platform is designed in a way that will build strong foundations of knowledge and exposure to the powerful world of microservices and cloud computing
 Event collaboration describes an architectural principle that works well together with an event-driven publish/subscribe architecture.
 
