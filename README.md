@@ -2,7 +2,6 @@
 Cloud-Native-programming with Golang . SaaS application for event management
 ```
 Microservice architecture :
-
 There are two main microservices that represent the logic of MyEvents:
 Event Service: This is the service that handles the events, their locations, and changes that happen to them
 Booking Service: This service handles bookings made by users
